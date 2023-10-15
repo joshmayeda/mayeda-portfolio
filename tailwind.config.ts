@@ -13,6 +13,15 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      backgroundColor: {
+        'pumpkinSpiceAccent': '#E1970E',
+        'pumpkinSpiceSecondary': '#FBE7C1',
+        'pumpkinSpicePrimary': '#EDD4A6',
+        'pumpkinSpiceBackground': '#FCEED4',
+      },
+      textColor: {
+        'pumpkinSpiceText': '#271B02',
+      },
     },
   },
   plugins: [],
