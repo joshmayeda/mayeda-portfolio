@@ -1,19 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import FlavorMenu from "./FlavorMenu";
 
-type NavbarProps = {
-	flavor: string;
-	//darkMode: boolean;
-};
+// type NavbarProps = {
+// 	flavor: string;
+// 	//darkMode: boolean;
+// };
 
-const Navbar: React.FC<NavbarProps> = ({ flavor }) => {
-	const flavoredAccent = flavor + 'Accent';
-	const flavoredText = flavor + 'Text';
+const Navbar: React.FC = () => {
   
 	return (
 	  <div
-		className="flex flex-row fixed items-center justify-center ring ring-white h-16 w-screen bg-pumpkinSpiceAccent"
-		style={{ backgroundColor: flavoredAccent }}
+		className="flex flex-row fixed items-center justify-center ring ring-pumpkinSpiceText h-16 w-screen bg-pumpkinSpiceAccent"
 	  >
 		<div className="flex flex-row gap-5 justify-center w-1/2">
 			<h1 className="self-center text-pumpkinSpiceText">Flavor:</h1>

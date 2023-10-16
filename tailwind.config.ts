@@ -17,9 +17,13 @@ const config: Config = {
         'pumpkinSpiceAccent': '#E1970E',
         'pumpkinSpiceSecondary': '#FBE7C1',
         'pumpkinSpicePrimary': '#EDD4A6',
-        'pumpkinSpiceBackground': '#FCEED4',
+        'pumpkinSpiceBackground': '#EDD4A6',
       },
       textColor: {
+        'pumpkinSpiceText': '#271B02',
+        'pumpkinSpiceAccent': '#E1970E',
+      },
+      ringColor: {
         'pumpkinSpiceText': '#271B02',
       },
     },
