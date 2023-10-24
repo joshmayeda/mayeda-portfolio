@@ -27,6 +27,24 @@ const config: Config = {
       ringColor: {
         'pumpkinSpiceText': '#271B02',
       },
+      keyframes: {
+        textIn: {
+          '0%': { transform: "translateY(100%)" },
+          '100%': { transform: "translateY(0%)" },
+        },
+        textOut: {
+          '0%': { transform: "translateY(0%)" },
+          '100%': { transform: "translateY(-100%)" },
+        },
+      },
+      animation: {
+        textIn: 'textIn 1s ease-in-out infinite',
+        textOut: 'textOut 1s ease-in-out infinite',
+      },
+      margin: {
+        '18': '4.5rem',
+        '19': '4.75rem',
+      }
     },
   },
   plugins: [

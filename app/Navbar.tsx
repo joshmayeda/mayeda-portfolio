@@ -22,7 +22,7 @@ const Navbar: React.FC<NavbarProps> = ( { homeRef, aboutRef, projectsRef, skills
   
 	return (
 	  <div
-		className="flex flex-row fixed items-center justify-center ring ring-pumpkinSpiceText h-16 w-screen bg-pumpkinSpiceAccent"
+		className="flex flex-row fixed items-center justify-center ring ring-pumpkinSpiceText h-16 w-screen bg-pumpkinSpiceAccent z-50"
 	  >
 		<div className="flex flex-row gap-5 justify-center w-1/2">
 			<h1 className="self-center text-pumpkinSpiceText">Flavor:</h1>
