@@ -6,8 +6,9 @@ import Navbar from './Navbar'
 import { TypeAnimation } from 'react-type-animation'
 import React from 'react'; 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Navigation, Pagination, Scrollbar, A11y, Autoplay, Mousewheel } from 'swiper/modules';
+import SwiperCore, { Pagination, Mousewheel } from 'swiper/modules';
 import 'swiper/swiper-bundle.css';
+import './customSwiper.css'
 
 export default function Home() {
 
