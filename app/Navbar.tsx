@@ -30,11 +30,10 @@ const Navbar: React.FC<NavbarProps> = ( { homeRef, aboutRef, projectsRef, skills
 		</div>
   
 		<div className="flex flex-row gap-36 items-center justify-center w-1/2">
-		  <a href="#" onClick={() => scrollToSection(homeRef)} className="justify-self-end text-pumpkinSpiceText font-bold">Home</a>
-		  <a href="#" onClick={() => scrollToSection(aboutRef)} className="justify-self-end text-pumpkinSpiceText font-bold">About</a>
-		  <a href="#" onClick={() => scrollToSection(projectsRef)} className="justify-self-end text-pumpkinSpiceText font-bold">Projects</a>
-		  <a href="#" onClick={() => scrollToSection(skillsRef)} className="justify-self-end text-pumpkinSpiceText font-bold">Skills</a>
-		  <a href="#" onClick={() => scrollToSection(contactRef)} className="justify-self-end text-pumpkinSpiceText font-bold">Contact</a>
+		  <a href="#home" onClick={() => scrollToSection(homeRef)} className="justify-self-end text-pumpkinSpiceText font-bold">Home</a>
+		  <a href="#projects" onClick={() => scrollToSection(projectsRef)} className="justify-self-end text-pumpkinSpiceText font-bold">Projects</a>
+		  <a href="#skills" onClick={() => scrollToSection(skillsRef)} className="justify-self-end text-pumpkinSpiceText font-bold">Skills</a>
+		  <a href="#contact" onClick={() => scrollToSection(contactRef)} className="justify-self-end text-pumpkinSpiceText font-bold">Contact</a>
 		</div>
 	  </div>
 	);
