@@ -1,75 +1,38 @@
-import { useState } from 'react';
+import React, { useRef, FormEvent } from 'react';
+import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
 
-const ContactForm = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
+const ContactForm: React.FC = () => {
+  const form = useRef<HTMLFormElement | null>(null);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const emailData = {
-    from: 'your-email@example.com',
-    to: 'joshmayeda@gmail.com',
-    subject: 'Test Email',
-    body: 'This is a test email sent via Elastic Email.',
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const sendEmail = (e: FormEvent) => {
     e.preventDefault();
 
-    // Send the formData to your backend to handle the email sending.
-    const response = await fetch('./sendEmail', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(emailData),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };  
-  
+    if (form.current) {
+      emailjs
+        .sendForm('service_g5drc45', 'template_bidcrzq', form.current, 'cbm1BpJK1lTND3e9Z')
+        .then(
+          (result: EmailJSResponseStatus) => {
+            console.log(result.text);
+          },
+          (error: EmailJSResponseStatus) => {
+            console.log(error.text);
+          }
+        );
+    }
+  };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Name:
-        <input
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-        />
-      </label>
-      <label>
-        Email:
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-        />
-      </label>
-      <label>
-        Message:
-        <textarea
-          name="message"
-          value={formData.message}
-          onChange={handleChange}
-        />
-      </label>
-      <button type="submit">Submit</button>
-    </form>
+    <div className="flex w-1/3 mt-10 bg-accent bg-opacity-40 rounded-xl">
+      <form ref={form} onSubmit={sendEmail} className="flex flex-col m-6 w-full h-full">
+        <label className="text-neutral">Name</label>
+        <input type="text" name="user_name" className="input input-bordered input-accent bg-secondary w-full" />
+        <label className="mt-5 text-neutral">Email</label>
+        <input type="text" name="user_email" className="input input-bordered input-accent bg-secondary w-full" />
+        <label className="mt-5 text-neutral">Message</label>
+        <textarea className="textarea textarea-accent bg-secondary h-48" name="message"></textarea>
+        <button className="btn btn-primary text-neutral mt-5">Send</button>
+      </form>
+    </div>
   );
 };
 

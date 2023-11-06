@@ -1,7 +1,8 @@
 'use client'
 
 import Image from 'next/image'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useRef } from 'react'
+import ContactForm from './ContactForm'
 import Navbar from './Navbar'
 import { TypeAnimation } from 'react-type-animation'
 import React from 'react'; 
@@ -21,37 +22,30 @@ export default function Home() {
   }
 
   const [flavor, setFlavor] = useState("pumpkinSpice")
-  const [description, setDescription] = useState(["a full-stack web developer", "a software engineer", "a dog dad", "an avid golfer", "a coffee enthusiast", "a computer science graduate"])
-  const homeRef = useRef(null)
-  const aboutRef = useRef(null)
-  const projectsRef = useRef(null)
-  const skillsRef = useRef(null)
-  const contactRef = useRef(null)
+  const [darkMode, setDarkMode] = useState(false)
+  const [theme, setTheme] = useState(flavor + (darkMode ? "Dark" : "Light"));
 
   return (
-    <main className="flex h-screen w-screen flex-col items-center justify-between overflow-y-hidden overscroll-y-contain overflow-x-hidden snap-mandatory snap-y bg-pumpkinSpiceBackground">
+    <main data-theme={theme} className="flex h-screen w-screen flex-col items-center justify-between overflow-y-hidden overscroll-y-contain overflow-x-hidden snap-mandatory snap-y bg-background">
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
-      <Navbar homeRef={homeRef} aboutRef={aboutRef} projectsRef={projectsRef} skillsRef={skillsRef} contactRef={contactRef} />
+      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} flavor={flavor} setFlavor={setFlavor} setTheme={setTheme} />
       <Swiper
         direction={'vertical'}
         slidesPerView={1}
         spaceBetween={30}
         mousewheel={true}
-        pagination={{
-          clickable: true,
-        }}
         modules={[Mousewheel, Pagination]}
         className="mySwiper"
       >
         {/* Home Section */}
-        <SwiperSlide>
-          <div id="home" className="flex flex-col justify-center items-center gap-5 ring ring-pumpkinSpiceText text-pumpkinSpiceText min-h-screen w-screen p-16 snap-start">
+        <SwiperSlide id="home">
+          <div id="home" className="flex flex-col justify-center items-center gap-5 text-neutral min-h-screen w-screen p-16 snap-start">
             <div className="flex flex-row gap-5 justify-start items-end w-11/12">
-              <h2 className="text-pumpkinSpiceText text-5xl">My name is</h2>
-              <h2 className="text-pumpkinSpiceAccent text-7xl">Josh Mayeda</h2>
+              <h2 className="text-neutral text-5xl">My name is</h2>
+              <h2 className="text-primary text-7xl">Josh Mayeda</h2>
             </div>
             <div className="flex self-start ml-19">
-              <h2 className="text-pumpkinSpiceText text-5xl">I am&nbsp;</h2>
+              <h2 className="text-neutral text-5xl">I am&nbsp;</h2>
               <TypeAnimation
                 sequence={[
                   "a full-stack web developer",
@@ -69,7 +63,7 @@ export default function Home() {
                 ]}
                 wrapper="h2"
                 repeat={Infinity}
-                className="text-pumpkinSpiceAccent text-5xl"
+                className="text-primary text-5xl"
                 cursor={true}
                 speed={50}
               />
@@ -78,17 +72,17 @@ export default function Home() {
         </SwiperSlide>
 
         {/* Projects Section */}
-        <SwiperSlide>
-          <div id="projects" ref={projectsRef} className="flex flex-col items-center ring ring-pumpkinSpiceText text-pumpkinSpiceText min-h-screen w-screen p-16 pb-4 snap-start">
+        <SwiperSlide id="projects">
+          <div id="projects" className="flex flex-col items-center text-neutral min-h-screen w-screen p-16 pb-4 snap-start">
             <h1 className="mt-5 text-6xl">Projects</h1>
             <div className="flex flex-col gap-5 mt-3 h-full w-9/12">
-              <div className="flex h-1/3 bg-pumpkinSpiceAccent gap-3">
-                <div className="flex relative h-11/12 w-full bg-pumpkinSpiceSecondary">
-                  <Image src="/dsep.png" fill={true} alt="DSEP" />
+              <div className="flex h-1/3 gap-3">
+                <div className="flex relative h-11/12 w-full">
+                  <Image src="/dsep.png" fill={true} alt="DSEP" className="rounded-lg" />
                 </div>
-                <div className="flex flex-col">
-                  <h2 className="text-4xl text-pumpkinSpiceText mt-2 flex gap-3 underline">DSEP</h2>
-                  <p className="text-xl mt-2 mr-2 text-pumpkinSpiceText">A full-stack web application to help aid in the character creation process for the video game
+                <div className="flex flex-col bg-accent p-3 rounded-lg">
+                  <h2 className="text-4xl text-neutral flex gap-3 underline">DSEP</h2>
+                  <p className="text-xl mt-2 mr-2 text-neutral">A full-stack web application to help aid in the character creation process for the video game
                     <p className="inline italic"> Dark Souls</p>
                   . Created with ReactJS and hosted on AWS. Data scraped from <a href="https://darksouls.wiki.fextralife.com/Dark+Souls+Wiki" className="text-blue-700 hover:underline">fextralife.com</a>
                   &nbsp;and inserted into relational database made with MySQL and Amazon RDS.</p>
@@ -102,10 +96,10 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className="flex h-1/3 bg-pumpkinSpiceAccent gap-3">
-                <div className="flex flex-col">
-                  <h2 className="text-4xl text-pumpkinSpiceText mt-2 flex gap-3 underline justify-end">Gym Notebook</h2>
-                  <p className="text-xl mt-2 mr-2 ml-2 text-pumpkinSpiceText text-right">A full-stack mobile application to track and share workout regimens with other users.
+              <div className="flex h-1/3 gap-3">
+                <div className="flex flex-col bg-accent p-3 rounded-lg">
+                  <h2 className="text-4xl text-neutral flex gap-3 underline justify-end">Gym Notebook</h2>
+                  <p className="text-xl text-neutral text-right">A full-stack mobile application to track and share workout regimens with other users.
                     Created with React Native. Data stored in MySQL database hosted on Firebase.</p>
                   <div className="flex gap-3 self-end mt-16">
                     <i style={projectIcons} title="JavaScript" className="devicon-javascript-plain colored" />
@@ -116,17 +110,17 @@ export default function Home() {
                     <i style={projectIcons} title="ExpressJS" className="devicon-express-original-wordmark colored" />
                   </div>
                 </div>
-                <div className="flex relative h-11/12 w-3/4 bg-pumpkinSpiceSecondary">
-                  <Image src="/gymnotebook.png" fill={true} alt="Gym Notebook" />
+                <div className="flex relative h-11/12 w-3/4">
+                  <Image src="/gymnotebook.png" fill={true} alt="Gym Notebook" className="rounded-lg" />
                 </div>
               </div>
-              <div className="flex h-1/3 bg-pumpkinSpiceAccent gap-3">
-                <div className="flex relative h-11/12 w-full bg-pumpkinSpiceSecondary">
-                  <Image src="/frosthaven-helper-with-blur.png" fill={true} alt="Frosthaven Helper" />
+              <div className="flex h-1/3 gap-3">
+                <div className="flex relative h-11/12 w-full">
+                  <Image src="/frosthaven-helper-with-blur.png" fill={true} alt="Frosthaven Helper" className="rounded-lg" />
                 </div>
-                <div className="flex flex-col">
-                  <h2 className="text-4xl text-pumpkinSpiceText mt-2 flex gap-3 underline">Frosthaven Helper</h2>
-                  <p className="text-xl mt-2 mr-2 text-pumpkinSpiceText">A full-stack web application to help eliminate accessibility issues with the board game
+                <div className="flex flex-col bg-accent p-3 rounded-lg">
+                  <h2 className="text-4xl text-neutral flex gap-3 underline">Frosthaven Helper</h2>
+                  <p className="text-xl mt-2 mr-2 text-neutral">A full-stack web application to help eliminate accessibility issues with the board game
                     <p className="inline italic"> Frosthaven</p>
                   . Features an enemy selector with matching attack cards and attack modifier decks as well as a loot deck creator. Created with NextJS with TypeScript and hosted on Vercel. </p>
                   <div className="flex gap-3 mt-10">
@@ -143,14 +137,13 @@ export default function Home() {
         </SwiperSlide>
 
         {/* Skills Section */}
-        <SwiperSlide>
-          <div id="skills" ref={skillsRef} className="flex flex-col items-center ring ring-pumpkinSpiceText text-pumpkinSpiceText min-h-screen w-screen p-16 snap-start">
+        <SwiperSlide id="skills">
+          <div id="skills" className="flex flex-col items-center text-neutral min-h-screen w-screen p-16 snap-start">
             <h1 className="mt-10 text-6xl">Skills</h1>
-            <div className="flex flex-col mt-32 gap-32">
+            <div className="flex flex-col mt-10 p-10 gap-32 bg-accent bg-opacity-40 rounded-2xl">
               <div className="flex gap-16">
                 <i style={iconStyles} title="JavaScript" className="devicon-javascript-plain colored bg-white" />
                 <i style={iconStyles} title="TypeScript" className="devicon-typescript-plain colored bg-white" />
-                <i style={iconStyles} title="C++" className="devicon-cplusplus-plain colored" />
                 <i style={iconStyles} title="MySQL" className="devicon-mysql-plain colored" />
                 <i style={iconStyles} title="ReactJS" className="devicon-react-plain colored" />
                 <i style={iconStyles} title="NextJS" className="devicon-nextjs-original-wordmark colored" />
@@ -158,26 +151,31 @@ export default function Home() {
                 <i style={iconStyles} title="CSS3" className="devicon-css3-plain colored" />
               </div>
               <div className="flex gap-16">
-                <i style={iconStyles} title="TailwindCSS" className="devicon-tailwindcss-plain colored" />
-                <i style={iconStyles} title="ExpressJS" className="devicon-express-original-wordmark colored" />
+                <i style={iconStyles} title="TailwindCSS" className="devicon-tailwindcss-plain" />
+                <i style={iconStyles} title="ExpressJS" className="devicon-express-original-wordmark colored bg-slate-300" />
                 <i style={iconStyles} title="NodeJS" className="devicon-nodejs-plain colored" />
+                <i style={iconStyles} title="C++" className="devicon-cplusplus-plain colored" />
+                <i style={iconStyles} title="AWS" className="devicon-amazonwebservices-plain-wordmark" />
+                <i style={iconStyles} title="GCP" className="devicon-googlecloud-plain-wordmark" />
+                <i style={iconStyles} title="Firebase" className="devicon-firebase-plain-wordmark" />
+              </div>
+              <div className="flex gap-16 self-center">
                 <i style={iconStyles} title="Github" className="devicon-github-plain colored" />
                 <i style={iconStyles} title="Windows" className="devicon-windows8-plain colored" />
                 <i style={iconStyles} title="Linux" className="devicon-linux-plain colored" />
                 <i style={iconStyles} title="Figma" className="devicon-figma-plain colored" />
                 <i style={iconStyles} title="Photoshop" className="devicon-photoshop-plain colored" />
               </div>
-              <div className="flex gap-16 self-center">
-                <i style={iconStyles} title="AWS" className="devicon-amazonwebservices-plain-wordmark" />
-                <i style={iconStyles} title="GCP" className="devicon-googlecloud-plain-wordmark" />
-                <i style={iconStyles} title="Firebase" className="devicon-firebase-plain-wordmark" />
-              </div>
             </div>
           </div>
         </SwiperSlide>
-        {/* <div id="contact" ref={contactRef} className="flex flex-col items-center ring ring-pumpkinSpiceText text-pumpkinSpiceText min-h-screen w-screen p-16 snap-start">
-          <ContactForm />
-        </div> */}
+
+        <SwiperSlide id="contact">
+          <div id="contact" className="flex flex-col items-center text-neutral min-h-screen w-screen p-16 snap-start">
+            <h1 className="text-neutral mt-5 text-6xl">Contact</h1>
+            <ContactForm />
+          </div>
+        </SwiperSlide>
       </Swiper>
     </main>
   )

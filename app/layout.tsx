@@ -1,6 +1,6 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import Head from 'next/head'
+import { useState } from 'react'
 import { Inter } from 'next/font/google'
 import "@fortawesome/fontawesome-svg-core/styles.css"
 import { config } from "@fortawesome/fontawesome-svg-core"; 
@@ -22,7 +22,6 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         {children}
-        
       </body>
     </html>
   )

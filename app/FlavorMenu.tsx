@@ -15,20 +15,13 @@ const FlavorMenu: React.FC = () => {
 
     const [flavor, setFlavor] = useState("pumpkinSpice")
     return (
-        <Listbox value={selectedPerson} onChange={setSelectedPerson}>
-            <Listbox.Button>{selectedPerson.name}</Listbox.Button>
-            <Listbox.Options>
-                {people.map((person) => (
-                <Listbox.Option
-                    key={person.id}
-                    value={person}
-                    disabled={person.unavailable}
-                >
-                    {person.name}
-                </Listbox.Option>
-                ))}
-            </Listbox.Options>
-        </Listbox>
+        <div className="dropdown">
+        <label tabIndex={0} className="btn m-1">Click</label>
+        <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-primary rounded-box w-48">
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+        </ul>
+        </div>
     )
 };
 

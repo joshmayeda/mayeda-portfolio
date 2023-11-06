@@ -48,7 +48,70 @@ const config: Config = {
     },
   },
   plugins: [
-    require('flowbite/plugin')
+    require("daisyui")
   ],
+  daisyui: {
+    themes: [
+      {
+        pumpkinSpiceLight: {
+          "primary": "#E1970E",
+          "secondary": "#EBDCC2",
+          "accent": "#A88138",
+          "neutral": "#271B02",
+          "background": "#EDD4A6",
+        },
+        pumpkinSpiceDark: {
+          "primary": "#F1A71E",
+          "secondary": "#3E2E14",
+          "accent": "#C7A057",
+          "neutral": "#FDF1D8",
+          "background": "#594012",
+        },
+        holidayCookiesLight: {
+          "primary": "#93A5D8",
+          "secondary": "#DAD2BE",
+          "accent": "#5F9C44",
+          "neutral": "#11141D",
+          "background": "#E8EBF2",
+        },
+        holidayCookiesDark: {
+          "primary": "#273A6D",
+          "secondary": "#413925",
+          "accent": "#7DBB63",
+          "neutral": "#E2E5EE",
+          "background": "#0D1017"
+        },
+        springBloomLight: {
+          "primary": "#B7D37B",
+          "secondary": "#CDCDD6",
+          "accent": "#CCA7BD",
+          "neutral": "#090C03",
+          "background": "#E0DECF",
+        },
+        springBloomDark: {
+          "primary": "#6A862D",
+          "secondary": "#292932",
+          "accent": "#573249",
+          "neutral": "#F9FCF3",
+          "background": "#2F2D1E",
+        },
+        summerSunsetLight: {
+          "primary": "#EB7A6D",
+          "secondary": "#F0C1BC",
+          "accent": "#77B19A",
+          "neutral": "#0D0403",
+          "background": "#F7DCD9",
+        },
+        summerSunsetDark: {
+          "primary": "#942114",
+          "secondary": "#43140F",
+          "accent": "#4E8871",
+          "neutral": "#FCF3F3",
+          "background": "#260B08",
+        },
+      }
+    ],
+    darkTheme: false,
+  },
 }
 export default config
