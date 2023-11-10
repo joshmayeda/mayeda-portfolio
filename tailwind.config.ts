@@ -63,7 +63,7 @@ const config: Config = {
         pumpkinSpiceDark: {
           "primary": "#F1A71E",
           "secondary": "#3E2E14",
-          "accent": "#C7A057",
+          "accent": "#9B7C42",
           "neutral": "#FDF1D8",
           "background": "#594012",
         },
@@ -77,7 +77,7 @@ const config: Config = {
         holidayCookiesDark: {
           "primary": "#273A6D",
           "secondary": "#413925",
-          "accent": "#7DBB63",
+          "accent": "#3A6328",
           "neutral": "#E2E5EE",
           "background": "#0D1017"
         },
@@ -105,7 +105,7 @@ const config: Config = {
         summerSunsetDark: {
           "primary": "#942114",
           "secondary": "#43140F",
-          "accent": "#4E8871",
+          "accent": "#2F5446",
           "neutral": "#FCF3F3",
           "background": "#260B08",
         },
