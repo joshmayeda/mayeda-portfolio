@@ -113,5 +113,15 @@ const config: Config = {
     ],
     darkTheme: false,
   },
+  screens: {
+    xxsTall: { raw: '(width: 375px) and (height: 629px)' },
+    xxs: '375px',
+    xs: '390px',
+    sm: '640px',
+    md: '768px',
+    lg: '1024px',
+    xl: '1440px',
+    xxl: '1536px',
+  }
 }
 export default config

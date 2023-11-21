@@ -39,12 +39,12 @@ export default function Home() {
       >
         {/* Home Section */}
         <SwiperSlide id="home">
-          <div id="home" className="flex flex-col justify-center items-center gap-5 text-neutral min-h-screen w-screen p-16 snap-start">
+          <div id="home" className="flex flex-col justify-center items-center gap-5 text-neutral min-h-screen w-screen">
             <div className="flex flex-row gap-5 justify-start items-end w-11/12">
               <h2 className="text-neutral text-5xl">My name is</h2>
               <h2 className="text-primary text-7xl">Josh Mayeda</h2>
             </div>
-            <div className="flex self-start ml-19">
+            <div className="flex flex-row justify-start items-end w-11/12">
               <h2 className="text-neutral text-5xl">I am&nbsp;</h2>
               <TypeAnimation
                 sequence={[
