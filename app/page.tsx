@@ -39,34 +39,41 @@ export default function Home() {
       >
         {/* Home Section */}
         <SwiperSlide id="home">
-          <div id="home" className="flex flex-col justify-center items-center gap-5 text-neutral min-h-screen w-screen">
-            <div className="flex flex-row gap-5 justify-start items-end w-11/12">
-              <h2 className="text-neutral text-5xl">My name is</h2>
-              <h2 className="text-primary text-7xl">Josh Mayeda</h2>
+          <div className="flex justify-center items-center gap-5 text-neutral min-h-screen w-screen">
+            <div className="flex flex-col justify-center items-start gap-5 text-neutral min-h-screen w-screen">
+              <div className="flex flex-row gap-5 justify-start items-end w-full pl-10">
+                <h2 className="text-neutral text-5xl">My name is</h2>
+                <h2 className="text-primary text-7xl">Josh Mayeda</h2>
+              </div>
+              <div className="flex flex-row justify-start items-end w-full pl-10">
+                <h2 className="text-neutral text-5xl">I am&nbsp;</h2>
+                <TypeAnimation
+                  sequence={[
+                    "a full-stack web developer",
+                    1500,
+                    "a software engineer",
+                    1500,
+                    "a dog dad",
+                    1500,
+                    "an avid golfer",
+                    1500,
+                    "a book lover",
+                    1500,
+                    "a computer science graduate",
+                    1500,
+                    "a boardgame",
+                    1500,
+                  ]}
+                  wrapper="h2"
+                  repeat={Infinity}
+                  className="text-primary text-5xl"
+                  cursor={true}
+                  speed={50}
+                />
+              </div>
             </div>
-            <div className="flex flex-row justify-start items-end w-11/12">
-              <h2 className="text-neutral text-5xl">I am&nbsp;</h2>
-              <TypeAnimation
-                sequence={[
-                  "a full-stack web developer",
-                  1500,
-                  "a software engineer",
-                  1500,
-                  "a dog dad",
-                  1500,
-                  "an avid golfer",
-                  1500,
-                  "a coffee enthusiast",
-                  1500,
-                  "a computer science graduate",
-                  1500,
-                ]}
-                wrapper="h2"
-                repeat={Infinity}
-                className="text-primary text-5xl"
-                cursor={true}
-                speed={50}
-              />
+            <div className="items-center w-8/12">
+              <Image src="/memoji.png" width={500} height={500} alt="Josh Mayeda's Memoji" />
             </div>
           </div>
         </SwiperSlide>
@@ -80,12 +87,12 @@ export default function Home() {
                 <div className="flex relative h-11/12 w-full">
                   <Image src="/dsep.png" fill={true} alt="DSEP" className="rounded-lg" />
                 </div>
-                <div className="flex flex-col bg-accent p-3 rounded-lg">
+                <div className="flex flex-col bg-accent bg-opacity-40 p-3 rounded-lg">
                   <h2 className="text-4xl text-neutral flex gap-3 underline">DSEP</h2>
-                  <p className="text-xl mt-2 mr-2 text-neutral">A full-stack web application to help aid in the character creation process for the video game
-                    <p className="inline italic"> Dark Souls</p>
+                  <div className="text-xl mt-2 mr-2 text-neutral">A full-stack web application to help aid in the character creation process for the video game
+                    <div className="inline italic"> Dark Souls</div>
                   . Created with ReactJS and hosted on AWS. Data scraped from <a href="https://darksouls.wiki.fextralife.com/Dark+Souls+Wiki" className="text-blue-700 hover:underline">fextralife.com</a>
-                  &nbsp;and inserted into relational database made with MySQL and Amazon RDS.</p>
+                  &nbsp;and inserted into relational database made with MySQL and Amazon RDS.</div>
                   <div className="flex gap-3 mt-16">
                     <i style={projectIcons} title="JavaScript" className="devicon-javascript-plain colored" />
                     <i style={projectIcons} title="ReactJS" className="devicon-react-plain colored" />
@@ -97,10 +104,10 @@ export default function Home() {
                 </div>
               </div>
               <div className="flex h-1/3 gap-3">
-                <div className="flex flex-col bg-accent p-3 rounded-lg">
+                <div className="flex flex-col bg-accent bg-opacity-40 p-3 rounded-lg">
                   <h2 className="text-4xl text-neutral flex gap-3 underline justify-end">Gym Notebook</h2>
-                  <p className="text-xl text-neutral text-right">A full-stack mobile application to track and share workout regimens with other users.
-                    Created with React Native. Data stored in MySQL database hosted on Firebase.</p>
+                  <div className="text-xl text-neutral text-right">A full-stack mobile application to track and share workout regimens with other users.
+                    Created with React Native. Data stored in MySQL database hosted on Firebase.</div>
                   <div className="flex gap-3 self-end mt-16">
                     <i style={projectIcons} title="JavaScript" className="devicon-javascript-plain colored" />
                     <i style={projectIcons} title="ReactJS" className="devicon-react-plain colored" />
@@ -118,11 +125,11 @@ export default function Home() {
                 <div className="flex relative h-11/12 w-full">
                   <Image src="/frosthaven-helper-with-blur.png" fill={true} alt="Frosthaven Helper" className="rounded-lg" />
                 </div>
-                <div className="flex flex-col bg-accent p-3 rounded-lg">
+                <div className="flex flex-col bg-accent bg-opacity-40 p-3 rounded-lg">
                   <h2 className="text-4xl text-neutral flex gap-3 underline">Frosthaven Helper</h2>
-                  <p className="text-xl mt-2 mr-2 text-neutral">A full-stack web application to help eliminate accessibility issues with the board game
-                    <p className="inline italic"> Frosthaven</p>
-                  . Features an enemy selector with matching attack cards and attack modifier decks as well as a loot deck creator. Created with NextJS with TypeScript and hosted on Vercel. </p>
+                  <div className="text-xl mt-2 mr-2 text-neutral">A full-stack web application to help eliminate accessibility issues with the board game
+                    <div className="inline italic"> Frosthaven</div>
+                  . Features an enemy selector with matching attack cards and attack modifier decks as well as a loot deck creator. Created with NextJS with TypeScript and hosted on Vercel. </div>
                   <div className="flex gap-3 mt-10">
                     <i style={projectIcons} title="TypeScript" className="devicon-typescript-plain colored" />
                     <i style={projectIcons} title="ReactJS" className="devicon-react-plain colored" />
