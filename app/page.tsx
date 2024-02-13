@@ -61,7 +61,7 @@ export default function Home() {
                     1500,
                     "a computer science graduate",
                     1500,
-                    "a boardgame",
+                    "a boardgame enthusiast",
                     1500,
                   ]}
                   wrapper="h2"
