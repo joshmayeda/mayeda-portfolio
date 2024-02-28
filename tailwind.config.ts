@@ -122,6 +122,11 @@ const config: Config = {
     lg: '1024px',
     xl: '1440px',
     xxl: '1536px',
-  }
+  },
+  variants: {
+    extend: {
+      opacity: ['group-hover'],
+    },
+  },
 }
 export default config

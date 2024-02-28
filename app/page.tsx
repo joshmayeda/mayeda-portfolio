@@ -3,11 +3,12 @@
 import Image from 'next/image'
 import { useState, useRef } from 'react'
 import ContactForm from './ContactForm'
+import ProjectModal from './ProjectModal'
 import Navbar from './Navbar'
 import { TypeAnimation } from 'react-type-animation'
 import React from 'react'; 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Pagination, Mousewheel } from 'swiper/modules';
+import { Pagination, Mousewheel } from 'swiper/modules';
 import 'swiper/swiper-bundle.css';
 import './customSwiper.css'
 
@@ -80,10 +81,10 @@ export default function Home() {
 
         {/* Projects Section */}
         <SwiperSlide id="projects">
-          <div id="projects" className="flex flex-col items-center text-neutral min-h-screen w-screen p-16 pb-4 snap-start">
-            <h1 className="mt-5 text-6xl">Projects</h1>
-            <div className="flex flex-col gap-5 mt-3 h-full w-9/12">
-              <div className="flex h-1/3 gap-3">
+          <div id="projects" className="flex flex-col items-center text-neutral min-h-screen w-screen p-8 pb-4 snap-start">
+            <h1 className="mt-5 mb-5 text-6xl">Projects</h1>
+            {/* <div className="flex flex-col gap-5 mt-3 h-11/12 w-9/12"> */}
+              {/* <div className="flex h-1/3 gap-3">
                 <div className="flex relative h-11/12 w-full">
                   <Image src="/dsep.png" fill={true} alt="DSEP" className="rounded-lg" />
                 </div>
@@ -138,14 +139,75 @@ export default function Home() {
                     <i style={projectIcons} title="NodeJS" className="devicon-nodejs-plain colored" />
                   </div>
                 </div>
+              </div> */}
+              
+            {/* </div> */}
+            <div className="flex flex-col mt-12 gap-20 w-5/6 h-11/12 items-center justify-center ring ring-green">
+              <div className="flex gap-16 ring ring-white w-full justify-between">
+                
+                <div className="flex ring ring-black w-1/4 items-center justify-center hover:opacity-50 group">
+                  <div className="absolute text-white text-4xl opacity-0 group-hover:opacity-100">
+                    DSEP
+                  </div>
+                  <Image src="/dsep.png" width={1080} height={1080} alt="DSEP" title="DSEP" />
+                </div>
+                <div className="flex ring ring-black w-1/4 items-center justify-center hover:opacity-50 group">
+                  <div className="absolute text-white text-4xl opacity-0 group-hover:opacity-100 whitespace-pre-wrap">
+                    Frosthaven Helper
+                  </div>
+                  <Image src="/frosthaven-helper.png" width={1080} height={1080} alt="DSEP" title="DSEP" />
+                </div>
+                <div className="flex ring ring-black w-1/4 items-center justify-center hover:opacity-50 group">
+                  <div className="absolute text-white text-4xl opacity-0 group-hover:opacity-100">
+                    Gym Notebook
+                  </div>
+                  <Image src="/gymnotebook.png" width={1080} height={1080} alt="DSEP" title="DSEP" />
+                </div>
+                <div className="flex ring ring-black w-1/4 items-center justify-center hover:opacity-50 group">
+                  <div className="absolute text-white text-7xl opacity-0 group-hover:opacity-100">
+                    DSEP
+                  </div>
+                  <Image src="/fh-bane-condition.png" width={1080} height={1080} alt="DSEP" title="DSEP" />
+                </div>
+
+              </div>
+
+              <div className="flex gap-16 ring ring-white w-full justify-between">
+                
+                <div className="flex ring ring-black w-1/4 items-center justify-center hover:opacity-50 group">
+                  <div className="absolute text-white text-7xl opacity-0 group-hover:opacity-100">
+                    DSEP
+                  </div>
+                  <Image src="/fh-bane-condition.png" width={1080} height={1080} alt="DSEP" title="DSEP" />
+                </div>
+                <div className="flex ring ring-black w-1/4 items-center justify-center hover:opacity-50 group">
+                  <div className="absolute text-white text-7xl opacity-0 group-hover:opacity-100">
+                    DSEP
+                  </div>
+                  <Image src="/fh-bane-condition.png" width={1080} height={1080} alt="DSEP" title="DSEP" />
+                </div>
+                <div className="flex ring ring-black w-1/4 items-center justify-center hover:opacity-50 group">
+                  <div className="absolute text-white text-7xl opacity-0 group-hover:opacity-100">
+                    DSEP
+                  </div>
+                  <Image src="/fh-bane-condition.png" width={1080} height={1080} alt="DSEP" title="DSEP" />
+                </div>
+                <div className="flex ring ring-black w-1/4 items-center justify-center hover:opacity-50 group">
+                  <div className="absolute text-white text-7xl opacity-0 group-hover:opacity-100">
+                    DSEP
+                  </div>
+                  <Image src="/fh-bane-condition.png" width={1080} height={1080} alt="DSEP" title="DSEP" />
+                </div>
+
               </div>
             </div>
+            
           </div>
         </SwiperSlide>
 
         {/* Skills Section */}
         <SwiperSlide id="skills">
-          <div id="skills" className="flex flex-col items-center text-neutral min-h-screen w-screen p-16 snap-start">
+          <div id="skills" className="flex flex-col items-center text-neutral min-h-screen w-screen p-8 snap-start">
             <h1 className="mt-10 text-6xl">Skills</h1>
             <div className="flex flex-col mt-10 p-10 gap-32 bg-accent bg-opacity-40 rounded-2xl">
               <div className="flex gap-16">
