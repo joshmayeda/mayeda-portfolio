@@ -42,8 +42,8 @@ const Navbar: React.FC<NavbarProps> = ( { darkMode, setDarkMode, flavor, setFlav
   
 		<div className="flex flex-row gap-36 items-center justify-center w-1/2">
 		  <a href="#home" className="justify-self-end text-neutral font-bold">Home</a>
+		  <a href="#about" className="justify-self-end text-neutral font-bold">About Me</a>
 		  <a href="#projects" className="justify-self-end text-neutral font-bold">Projects</a>
-		  <a href="#skills" className="justify-self-end text-neutral font-bold">Skills</a>
 		  <a href="#contact"  className="justify-self-end text-neutral font-bold">Contact</a>
 		</div>
 	  </div>

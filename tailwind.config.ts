@@ -54,11 +54,11 @@ const config: Config = {
     themes: [
       {
         pumpkinSpiceLight: {
-          "primary": "#E1970E",
-          "secondary": "#EBDCC2",
-          "accent": "#A88138",
-          "neutral": "#271B02",
-          "background": "#EDD4A6",
+          "primary": "#D35400",
+          "secondary": "#E6AE84",
+          "accent": "#EE9755",
+          "neutral": "#4A3C31",
+          "background": "#F5E8D2",
         },
         pumpkinSpiceDark: {
           "primary": "#F1A71E",

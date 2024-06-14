@@ -1,16 +1,18 @@
+/* eslint-disable react/jsx-key */
 'use client'
 
 import Image from 'next/image'
 import { useState, useRef } from 'react'
 import ContactForm from './ContactForm'
-import ProjectModal from './ProjectModal'
 import Navbar from './Navbar'
+import SkillsCarousel from './SkillsCarousel'
 import { TypeAnimation } from 'react-type-animation'
 import React from 'react'; 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Mousewheel } from 'swiper/modules';
 import 'swiper/swiper-bundle.css';
 import './customSwiper.css'
+import HorizontalCarousel from './HorizontalCarousel'
 
 export default function Home() {
 
@@ -21,6 +23,13 @@ export default function Home() {
   const projectIcons = {
     fontSize: "3rem"
   }
+
+  const skillsIcons = [
+    <Image src="/dsep.png" width={500} height={500} alt="DSEP" title="DSEP" className="rounded-2xl" />,
+      <Image src="/fh-bane-condition.png" width={500} height={500} alt="DSEP" title="DSEP" className="rounded-2xl" />,
+      <Image src="/frosthaven-helper.png" width={500} height={500} alt="DSEP" title="DSEP" className="rounded-2xl" />,
+      <Image src="/gymnotebook.png" width={500} height={500} alt="DSEP" title="DSEP" className="rounded-2xl" />,
+  ]
 
   const [flavor, setFlavor] = useState("pumpkinSpice")
   const [darkMode, setDarkMode] = useState(false)
@@ -40,7 +49,7 @@ export default function Home() {
       >
         {/* Home Section */}
         <SwiperSlide id="home">
-          <div className="flex justify-center items-center gap-5 text-neutral min-h-screen w-screen">
+          <div id="home" className="flex justify-center items-center gap-5 text-neutral min-h-screen w-screen">
             <div className="flex flex-col justify-center items-start gap-5 text-neutral min-h-screen w-screen">
               <div className="flex flex-row gap-5 justify-start items-end w-full pl-10">
                 <h2 className="text-neutral text-5xl">My name is</h2>
@@ -79,161 +88,80 @@ export default function Home() {
           </div>
         </SwiperSlide>
 
+        <SwiperSlide id="about">
+          <div id="about" className="flex flex-col items-center text-neutral min-h-screen w-screen p-16 snap-start">
+            <h1 className="text-neutral mt-5 text-6xl">About Me</h1>
+              <div className="flex items-center justify-center gap-8 w-5/6 min-h-11/12 bg-secondary mt-6 rounded-2xl">
+                <p className="text-2xl basis-1/2 pt-3 pb-3 pl-10">
+                  I am a full-stack web developer with a passion for creating beautiful, functional,
+                  and user-friendly web applications. I have experience with a variety of technologies,
+                  including React, Next.js, Node.js, Express, and MongoDB. I am always looking to learn
+                  new technologies and improve my skills. 
+                </p>
+                <div className="flex items-center justify-center basis-1/2 h-full">
+                  <SkillsCarousel images={skillsIcons} />
+                </div>
+              </div>
+          </div>
+        </SwiperSlide>
+
         {/* Projects Section */}
         <SwiperSlide id="projects">
           <div id="projects" className="flex flex-col items-center text-neutral min-h-screen w-screen p-8 pb-4 snap-start">
             <h1 className="mt-5 mb-5 text-6xl">Projects</h1>
-            {/* <div className="flex flex-col gap-5 mt-3 h-11/12 w-9/12"> */}
-              {/* <div className="flex h-1/3 gap-3">
-                <div className="flex relative h-11/12 w-full">
-                  <Image src="/dsep.png" fill={true} alt="DSEP" className="rounded-lg" />
-                </div>
-                <div className="flex flex-col bg-accent bg-opacity-40 p-3 rounded-lg">
-                  <h2 className="text-4xl text-neutral flex gap-3 underline">DSEP</h2>
-                  <div className="text-xl mt-2 mr-2 text-neutral">A full-stack web application to help aid in the character creation process for the video game
-                    <div className="inline italic"> Dark Souls</div>
-                  . Created with ReactJS and hosted on AWS. Data scraped from <a href="https://darksouls.wiki.fextralife.com/Dark+Souls+Wiki" className="text-blue-700 hover:underline">fextralife.com</a>
-                  &nbsp;and inserted into relational database made with MySQL and Amazon RDS.</div>
-                  <div className="flex gap-3 mt-16">
-                    <i style={projectIcons} title="JavaScript" className="devicon-javascript-plain colored" />
-                    <i style={projectIcons} title="ReactJS" className="devicon-react-plain colored" />
-                    <i style={projectIcons} title="Amazon Web Services" className="devicon-amazonwebservices-plain-wordmark" />
-                    <i style={projectIcons} title="MySQL" className="devicon-mysql-plain colored" />
-                    <i style={projectIcons} title="NodeJS" className="devicon-nodejs-plain colored" />
-                    <i style={projectIcons} title="ExpressJS" className="devicon-express-original-wordmark colored" />
-                  </div>
-                </div>
-              </div>
-              <div className="flex h-1/3 gap-3">
-                <div className="flex flex-col bg-accent bg-opacity-40 p-3 rounded-lg">
-                  <h2 className="text-4xl text-neutral flex gap-3 underline justify-end">Gym Notebook</h2>
-                  <div className="text-xl text-neutral text-right">A full-stack mobile application to track and share workout regimens with other users.
-                    Created with React Native. Data stored in MySQL database hosted on Firebase.</div>
-                  <div className="flex gap-3 self-end mt-16">
-                    <i style={projectIcons} title="JavaScript" className="devicon-javascript-plain colored" />
-                    <i style={projectIcons} title="ReactJS" className="devicon-react-plain colored" />
-                    <i style={projectIcons} title="Firebase" className="devicon-firebase-plain-wordmark" />
-                    <i style={projectIcons} title="MySQL" className="devicon-mysql-plain colored" />
-                    <i style={projectIcons} title="NodeJS" className="devicon-nodejs-plain colored" />
-                    <i style={projectIcons} title="ExpressJS" className="devicon-express-original-wordmark colored" />
-                  </div>
-                </div>
-                <div className="flex relative h-11/12 w-3/4">
-                  <Image src="/gymnotebook.png" fill={true} alt="Gym Notebook" className="rounded-lg" />
-                </div>
-              </div>
-              <div className="flex h-1/3 gap-3">
-                <div className="flex relative h-11/12 w-full">
-                  <Image src="/frosthaven-helper-with-blur.png" fill={true} alt="Frosthaven Helper" className="rounded-lg" />
-                </div>
-                <div className="flex flex-col bg-accent bg-opacity-40 p-3 rounded-lg">
-                  <h2 className="text-4xl text-neutral flex gap-3 underline">Frosthaven Helper</h2>
-                  <div className="text-xl mt-2 mr-2 text-neutral">A full-stack web application to help eliminate accessibility issues with the board game
-                    <div className="inline italic"> Frosthaven</div>
-                  . Features an enemy selector with matching attack cards and attack modifier decks as well as a loot deck creator. Created with NextJS with TypeScript and hosted on Vercel. </div>
-                  <div className="flex gap-3 mt-10">
-                    <i style={projectIcons} title="TypeScript" className="devicon-typescript-plain colored" />
-                    <i style={projectIcons} title="ReactJS" className="devicon-react-plain colored" />
-                    <i style={projectIcons} title="NextJS" className="devicon-nextjs-original-wordmark colored" />
-                    <i style={projectIcons} title="MySQL" className="devicon-mysql-plain colored" />
-                    <i style={projectIcons} title="NodeJS" className="devicon-nodejs-plain colored" />
-                  </div>
-                </div>
-              </div> */}
-              
-            {/* </div> */}
-            <div className="flex flex-col mt-12 gap-20 w-5/6 h-11/12 items-center justify-center ring ring-green">
-              <div className="flex gap-16 ring ring-white w-full justify-between">
-                
-                <div className="flex ring ring-black w-1/4 items-center justify-center hover:opacity-50 group">
+            <div className="flex flex-col mt-5 gap-10 w-5/6 items-center justify-center">
+              <div className="flex gap-16 w-full justify-between">
+                <div className="flex w-1/4 items-center justify-center hover:opacity-50 group ring ring-primary rounded-2xl">
                   <div className="absolute text-white text-4xl opacity-0 group-hover:opacity-100">
                     DSEP
                   </div>
-                  <Image src="/dsep.png" width={1080} height={1080} alt="DSEP" title="DSEP" />
+                  <Image src="/dsep.png" width={1080} height={1080} alt="DSEP" title="DSEP" className="rounded-2xl" />
                 </div>
-                <div className="flex ring ring-black w-1/4 items-center justify-center hover:opacity-50 group">
+                <div className="flex w-1/4 items-center justify-center hover:opacity-50 group ring ring-primary rounded-2xl">
                   <div className="absolute text-white text-4xl opacity-0 group-hover:opacity-100 whitespace-pre-wrap">
                     Frosthaven Helper
                   </div>
-                  <Image src="/frosthaven-helper.png" width={1080} height={1080} alt="DSEP" title="DSEP" />
+                  <Image src="/frosthaven-helper.png" width={1080} height={1080} alt="Frosthaven Helper" title="Frosthaven Helper" className="rounded-2xl" />
                 </div>
-                <div className="flex ring ring-black w-1/4 items-center justify-center hover:opacity-50 group">
+                <div className="flex w-1/4 items-center justify-center hover:opacity-50 group ring ring-primary rounded-2xl">
                   <div className="absolute text-white text-4xl opacity-0 group-hover:opacity-100">
                     Gym Notebook
                   </div>
-                  <Image src="/gymnotebook.png" width={1080} height={1080} alt="DSEP" title="DSEP" />
+                  <Image src="/gymnotebook.png" width={1080} height={1080} alt="Gym Notebook" title="Gym Notebook" className="rounded-2xl" />
                 </div>
-                <div className="flex ring ring-black w-1/4 items-center justify-center hover:opacity-50 group">
+                <div className="flex w-1/4 items-center justify-center hover:opacity-50 group ring ring-primary rounded-2xl">
                   <div className="absolute text-white text-7xl opacity-0 group-hover:opacity-100">
                     DSEP
                   </div>
-                  <Image src="/fh-bane-condition.png" width={1080} height={1080} alt="DSEP" title="DSEP" />
+                  <Image src="/fh-bane-condition.png" width={1080} height={1080} alt="DSEP" title="DSEP" className="rounded-2xl" />
                 </div>
-
               </div>
 
-              <div className="flex gap-16 ring ring-white w-full justify-between">
-                
-                <div className="flex ring ring-black w-1/4 items-center justify-center hover:opacity-50 group">
+              <div className="flex gap-16 w-full justify-between">
+                <div className="flex w-1/4 items-center justify-center hover:opacity-50 group ring ring-primary rounded-2xl">
                   <div className="absolute text-white text-7xl opacity-0 group-hover:opacity-100">
                     DSEP
                   </div>
-                  <Image src="/fh-bane-condition.png" width={1080} height={1080} alt="DSEP" title="DSEP" />
+                  <Image src="/fh-bane-condition.png" width={1080} height={1080} alt="DSEP" title="DSEP" className="rounded-2xl" />
                 </div>
-                <div className="flex ring ring-black w-1/4 items-center justify-center hover:opacity-50 group">
+                <div className="flex w-1/4 items-center justify-center hover:opacity-50 group ring ring-primary rounded-2xl">
                   <div className="absolute text-white text-7xl opacity-0 group-hover:opacity-100">
                     DSEP
                   </div>
-                  <Image src="/fh-bane-condition.png" width={1080} height={1080} alt="DSEP" title="DSEP" />
+                  <Image src="/fh-bane-condition.png" width={1080} height={1080} alt="DSEP" title="DSEP" className="rounded-2xl" />
                 </div>
-                <div className="flex ring ring-black w-1/4 items-center justify-center hover:opacity-50 group">
+                <div className="flex w-1/4 items-center justify-center hover:opacity-50 group ring ring-primary rounded-2xl">
                   <div className="absolute text-white text-7xl opacity-0 group-hover:opacity-100">
                     DSEP
                   </div>
-                  <Image src="/fh-bane-condition.png" width={1080} height={1080} alt="DSEP" title="DSEP" />
+                  <Image src="/fh-bane-condition.png" width={1080} height={1080} alt="DSEP" title="DSEP" className="rounded-2xl" />
                 </div>
-                <div className="flex ring ring-black w-1/4 items-center justify-center hover:opacity-50 group">
+                <div className="flex w-1/4 items-center justify-center hover:opacity-50 group ring ring-primary rounded-2xl">
                   <div className="absolute text-white text-7xl opacity-0 group-hover:opacity-100">
                     DSEP
                   </div>
-                  <Image src="/fh-bane-condition.png" width={1080} height={1080} alt="DSEP" title="DSEP" />
+                  <Image src="/fh-bane-condition.png" width={1080} height={1080} alt="DSEP" title="DSEP" className="rounded-2xl" />
                 </div>
-
-              </div>
-            </div>
-            
-          </div>
-        </SwiperSlide>
-
-        {/* Skills Section */}
-        <SwiperSlide id="skills">
-          <div id="skills" className="flex flex-col items-center text-neutral min-h-screen w-screen p-8 snap-start">
-            <h1 className="mt-10 text-6xl">Skills</h1>
-            <div className="flex flex-col mt-10 p-10 gap-32 bg-accent bg-opacity-40 rounded-2xl">
-              <div className="flex gap-16">
-                <i style={iconStyles} title="JavaScript" className="devicon-javascript-plain colored bg-white" />
-                <i style={iconStyles} title="TypeScript" className="devicon-typescript-plain colored bg-white" />
-                <i style={iconStyles} title="MySQL" className="devicon-mysql-plain colored" />
-                <i style={iconStyles} title="ReactJS" className="devicon-react-plain colored" />
-                <i style={iconStyles} title="NextJS" className="devicon-nextjs-original-wordmark colored" />
-                <i style={iconStyles} title="HTML5" className="devicon-html5-plain colored" />
-                <i style={iconStyles} title="CSS3" className="devicon-css3-plain colored" />
-              </div>
-              <div className="flex gap-16">
-                <i style={iconStyles} title="TailwindCSS" className="devicon-tailwindcss-plain" />
-                <i style={iconStyles} title="ExpressJS" className="devicon-express-original-wordmark colored bg-slate-300" />
-                <i style={iconStyles} title="NodeJS" className="devicon-nodejs-plain colored" />
-                <i style={iconStyles} title="C++" className="devicon-cplusplus-plain colored" />
-                <i style={iconStyles} title="AWS" className="devicon-amazonwebservices-plain-wordmark" />
-                <i style={iconStyles} title="GCP" className="devicon-googlecloud-plain-wordmark" />
-                <i style={iconStyles} title="Firebase" className="devicon-firebase-plain-wordmark" />
-              </div>
-              <div className="flex gap-16 self-center">
-                <i style={iconStyles} title="Github" className="devicon-github-plain colored" />
-                <i style={iconStyles} title="Windows" className="devicon-windows8-plain colored" />
-                <i style={iconStyles} title="Linux" className="devicon-linux-plain colored" />
-                <i style={iconStyles} title="Figma" className="devicon-figma-plain colored" />
-                <i style={iconStyles} title="Photoshop" className="devicon-photoshop-plain colored" />
               </div>
             </div>
           </div>
