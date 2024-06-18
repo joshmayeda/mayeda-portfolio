@@ -43,7 +43,7 @@ const ContactForm: React.FC = () => {
           <input type="text" name="user_email" className="input input-bordered input-accent bg-secondary w-full" />
           <label className="mt-5 text-neutral">Message</label>
           <textarea className="textarea textarea-accent bg-secondary h-48" name="message"></textarea>
-          {loading ? (<div className="loading loading-dots loading-lg self-center"></div>) : <button className="btn btn-primary text-neutral mt-5">Send</button>}
+          {loading ? (<div className="loading loading-dots loading-lg self-center"></div>) : <button className="btn btn-primary text-neutral mt-5 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:btn-primary duration-300">Send</button>}
         </form>
       </div>
       {alert && (

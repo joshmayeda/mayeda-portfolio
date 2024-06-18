@@ -52,7 +52,7 @@ const SkillsCarousel: React.FC<SkillsCarouselProps> = ({ images }) => {
   return (
 
     <div className="flex flex-col items-center justify-between gap-5">
-      <div className="flex flex-none overflow-auto no-scrollbar gap-10 items-center justify-center pt-5" >
+      <div className="flex flex-none overflow-auto no-scrollbar gap-10 items-center justify-center mt-5 ring ring-primary rounded-2xl transition-transform ease-in-out" >
         {images[currentIndex]}
       </div>
       <div className="flex gap-5 justify-center">

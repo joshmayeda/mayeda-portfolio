@@ -12,7 +12,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Mousewheel } from 'swiper/modules';
 import 'swiper/swiper-bundle.css';
 import './customSwiper.css'
-import HorizontalCarousel from './HorizontalCarousel'
 
 export default function Home() {
 
